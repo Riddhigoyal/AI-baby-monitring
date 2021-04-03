@@ -1,0 +1,74 @@
+
+
+body{
+    background-size: cover;
+    
+}
+
+.heading{
+    font-size: 35px;
+    width: 100%;
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    background-color: darkblue;
+    opacity: 0.6;
+    color: cyan;
+}
+
+
+
+
+#founding,#status{
+    font-size: 18px;
+    font-family: cursive;
+    margin-top: 0.5%;
+}
+
+#copyrightfooter{
+    width: 100%;
+    bottom: 0;
+    line-height: 3;
+    text-align: center;
+    position: fixed;
+    background-color: black;
+    color: cornsilk;
+}
+
+canvas{
+    border: 3px double crimson;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px crimson;
+    margin-top: 110px;
+}
+
+h2{
+    font-size: 27px;
+    margin-top: 0%;
+    background-color: darkblue;
+    opacity: 0.6;
+    color: yellow;
+    font-family: 'Courgette', cursive;
+    animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    from {color: red;}
+    to {color: yellow;}
+  }
+
+input{
+    width: 40%;
+}
+
+span{
+    color: thistle
+    ;
+}
+
+#start{
+    font-family: cursive;
+    margin-top: 0.5%;
+    background-color: lime;
+}
