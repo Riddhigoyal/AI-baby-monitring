@@ -1,27 +1,21 @@
-video="";
 object=[];
 
 function preload(){
-    music= loadSound("Sunshine_Samba.mp3");
+    music= loadSound("S.mp3");
 }
-music.play();
 
 function setup(){
     canvas=createCanvas(480,380);
     canvas.center();
-    video=createVideo(VIDEO);
+    video=createCapture(VIDEO);
     video.hide();
     objectdetector=ml5.objectDetector('cocossd',modelLoaded);
     document.getElementById("status").innerHTML-"Status: Detecting Objects";
-    music.play();
 }
 
 function modelLoaded(){
     console.log ("cocossd is Initialized");
     status=true;
-    video.loop();
-    video.speed(1);
-    video.volume(0);
 }
 
 function got_result(error,result){
@@ -53,11 +47,23 @@ function draw(){
         }
     }
 
-    if(object[i].label == Person){
+    if(object.label == "person"){
+        document.getElementById("founding").innerHTML="Baby found";
+        document.getElementById("status").innerHTML="Baby detected";
         var synth= window.speechSynthesis;
         speakdata="Baby Found"
         utterthis= new SpeechSynthesisUtterance(speakdata);
         synth.speak(utterthis); 
-        music.stop();
+    }
+    else{
+        document.getElementById("founding").innerHTML="Baby not found";
+        document.getElementById("status").innerHTML="Baby not detected";
+        music.play();
+    }
+
+    if(object.length < 0){
+        document.getElementById("founding").innerHTML="Baby not found";
+        document.getElementById("status").innerHTML="Baby not detected";
+        music.play();
     }
 }
