@@ -36,7 +36,6 @@ function draw(){
         objectdetector.detect(video,got_result);
         for(i=0 ; i<object.length ; i++){
             document.getElementById("status").innerHTML="Object Detected";
-            document.getElementById("objects").innerHTML="Number of objects detected are " + object.length;
             percent=floor(object[i].confidence*100);
             fill("#FF0000");
             textsize(20);
@@ -61,7 +60,7 @@ function draw(){
         music.play();
     }
 
-    if(object.length < 0){
+    if(object.length == 0){
         document.getElementById("founding").innerHTML="Baby not found";
         document.getElementById("status").innerHTML="Baby not detected";
         music.play();
