@@ -43,24 +43,25 @@ function draw(){
             noFill();
             stroke("#FF0000");
             rect(object[i].x ,object[i].y ,object[i].width ,object[i].height);
+
+            if(object[i].label == "person"){
+                document.getElementById("founding").innerHTML="Baby found";
+                document.getElementById("status").innerHTML="Baby detected";
+                var synth= window.speechSynthesis;
+                speakdata="Baby Found"
+                utterthis= new SpeechSynthesisUtterance(speakdata);
+                synth.speak(utterthis); 
+                music.stop();
+            }
+            else{
+                document.getElementById("founding").innerHTML="Baby not found";
+                document.getElementById("status").innerHTML="Baby not detected";
+                music.play();
+            }
         }
     }
 
-    if(object.label == "person"){
-        document.getElementById("founding").innerHTML="Baby found";
-        document.getElementById("status").innerHTML="Baby detected";
-        var synth= window.speechSynthesis;
-        speakdata="Baby Found"
-        utterthis= new SpeechSynthesisUtterance(speakdata);
-        synth.speak(utterthis); 
-    }
-    else{
-        document.getElementById("founding").innerHTML="Baby not found";
-        document.getElementById("status").innerHTML="Baby not detected";
-        music.play();
-    }
-
-    if(object.length == 0){
+    if(object[i].length == 0){
         document.getElementById("founding").innerHTML="Baby not found";
         document.getElementById("status").innerHTML="Baby not detected";
         music.play();
